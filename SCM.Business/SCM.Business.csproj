@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,12 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SCM.Model\SCM.Model.csproj" />
+    <Folder Include="Provider\Vendor\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Provider\Customer\" />
-    <Folder Include="Provider\Vendor\" />
+    <ProjectReference Include="..\SCM.Model\SCM.Model.csproj" />
   </ItemGroup>
 
 </Project>

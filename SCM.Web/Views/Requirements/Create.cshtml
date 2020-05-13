@@ -1,0 +1,101 @@
+﻿@model SCM.Business.DbModel.Requirements
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>iSupport</h1>
+
+<h4>Add seeker </h4>
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input asp-for="RequirerName" class="form-control" />
+                <span asp-validation-for="RequirerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Age</label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Description of requirement</label>
+                <input asp-for="RequirementDesc" class="form-control" />
+                <span asp-validation-for="RequirementDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Volunteer name</label>
+                <input asp-for="VolunteerCode" class="form-control" />
+                <span asp-validation-for="VolunteerCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Contact no</label>
+                <input  type="tel" asp-for="ContactNo" class="form-control" pattern="[0-9]{10}" required />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Requested date</label>
+                <input asp-for="RequestedDate" class="form-control" />
+                <span asp-validation-for="RequestedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Due date</label>
+                <input asp-for="RequestDueDate" class="form-control" />
+                <span asp-validation-for="RequestDueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <select asp-for="Priority" class="form-control" asp-items="@(new SelectList(@ViewBag.PriorityList,"Id","Desc"))"></select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Lat</label>
+                <input asp-for="Lat" class="form-control" />
+                <span asp-validation-for="Lat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Long</label>
+                <input asp-for="Long" class="form-control" />
+                <span asp-validation-for="Long" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-9 col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
+                <div class="panel-actions">
+                    <a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                    <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <div class="panel-body-map">
+                <div id="map" style="height:380px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        await Html.RenderPartialAsync("_LoadMapProcess");}
+}

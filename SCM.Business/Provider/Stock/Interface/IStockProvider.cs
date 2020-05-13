@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SCM.Business.Provider.Stock
+namespace SCM.Business.Provider
 {
-    interface IStockProvider
+    public interface IStockProvider
     {
     }
 }

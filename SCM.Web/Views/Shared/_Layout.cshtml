@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SCM.Web</title>
+    <!-- Bootstrap CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="~/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    <script src="~/js/leaflet.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- javascripts -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="~/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <!-- bootstrap -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="~/js/jquery.scrollTo.min.js"></script>
+    <script src="~/js/jquery.nicescroll.js" type="text/javascript"></script>
+</head>
+<body>
+    <section id="container" class="">
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+            <!--logo start-->
+            <a href="index.html" class="logo">i <span class="lite">Seeker</span></a>
+            <!--logo end-->
+            <!--Notification bar-->
+            <div class="top-nav notification-row">
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+
+                    <!-- task notificatoin start -->
+                    <li id="task_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-task-l"></i>
+                            <span class="badge bg-important">6</span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 6 pending orders</p><!--TODO : to list all pending orders w.r.t to there stage stage-->
+                            </li>
+                            <!--Below is the list of pending purchase orders based on the nearest due date-->
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">KAMBIL SCHOOL Stock purchase </div>
+                                        <div class="percent">90%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                            <span class="sr-only">90% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">
+                                            Velam temple quote
+                                        </div>
+                                        <div class="percent">30%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                            <span class="sr-only">30% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Fathima hospital quote</div>
+                                        <div class="percent">80%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Parasini hotel purification</div>
+                                        <div class="percent">78%</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%">
+                                            <span class="sr-only">78% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div class="desc">Rajan villa well recharge</div>
+                                        <div class="percent">50%</div>
+                                    </div>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                            <span class="sr-only">50% Complete</span>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="#">See All Orders</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- task notificatoin end -->
+                    <!-- inbox notificatoin start-->
+                    <!--TODO : Here we will be adding the service request, quote request or Feedback messages that customers send-->
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-envelope-l"></i>
+                            <span class="badge bg-important">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                            <li>
+                                <p class="blue">You have 5 new messages</p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Greg  Martin</span>
+                                        <span class="time">1 min</span>
+                                    </span>
+                                    <span class="message">
+                                        I would like to get a water recharge...
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Bob   Mckenzie</span>
+                                        <span class="time">5 mins</span>
+                                    </span>
+                                    <span class="message">
+                                        Hi, I would like to have a service...
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Phillip   Park</span>
+                                        <span class="time">2 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                        My filter to be replaced.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
+                                    <span class="subject">
+                                        <span class="from">Ray   Munoz</span>
+                                        <span class="time">1 day</span>
+                                    </span>
+                                    <span class="message">
+                                        Thank you for your service.
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">See all messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- inbox notificatoin end -->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="img/avatar1_small.jpg">
+                            </span>
+                            <span class="username">Jenifer Smith</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i>Log Out</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+            <!--Notification bar ends here-->
+        </header>
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <!--TODO : Main menu to list overall details, order list-->
+                    <li class="active">
+                        <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="icon_house_alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <!--TODO : on click change the color of the menu-->
+                        <!--TODO : To have a advanced list with option for CRUD-->
+                        <a href="javascript:;" class="">
+                            <i class="icon_gift_alt" style='color:white'></i>
+                            <span>Stocks</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <!--TODO : CRUD for vendors-->
+                        <a href="javascript:;" class="">
+                            <i class='icon_lifesaver' style='color:white'></i>
+                            <span>Suppliers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" asp-area="" asp-controller="Requirements" asp-action="Index">
+                            <i class='icon_contacts_alt' style='color:white'></i>
+                            <span>Seekers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="chart-chartjs.html">
+                            <i class="icon_datareport" style='color:white'></i>
+                            <span>Purchase orders</span>
+                        </a>
+
+                    </li>
+                    <li class="sub-menu">
+                        <!--TODO : CRUD for vendors-->
+                        <a href="javascript:;" class="">
+                            <i class='icon_wallet_alt' style='color:white'></i>
+                            <span>Sale orders</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                @RenderBody()
+            </section>
+            <div class="text-right">
+                <div class="credits">
+
+                </div>
+            </div>
+        </section>
+        <!--main content end-->
+        <!-- Modal content-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog container-modal modal-shadow-container" role="document">
+                <div class="modal-content">
+                    <div id="popupcontent"></div>
+                </div>
+            </div>
+        </div>
+        <!--modal content ends here-->
+        <div class="modal-anim">
+            <div class="spinner-grow text-success " role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - iSeeker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <!--custome script for all page-->
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/Common.js"></script>
+    <script src="~/js/requirementOverview.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

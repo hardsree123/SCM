@@ -16,6 +16,7 @@ namespace SCM.Business.DbModel
         }
 
         public virtual DbSet<Covid> Covid { get; set; }
+        public virtual DbSet<Requirements> Requirements { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Vendor> Vendor { get; set; }
 
@@ -56,6 +57,72 @@ namespace SCM.Business.DbModel
                 entity.Property(e => e.Province)
                     .IsRequired()
                     .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+            });
+
+            modelBuilder.Entity<Requirements>(entity =>
+            {
+                entity.ToTable("requirements");
+
+                entity.Property(e => e.Id).HasColumnType("int(10) unsigned");
+
+                entity.Property(e => e.AdditionalDetails).HasColumnType("blob");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Age).HasColumnType("smallint(2)");
+
+                entity.Property(e => e.CancellationDesc)
+                    .HasColumnType("varchar(500)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.ContactNo)
+                    .IsRequired()
+                    .HasColumnType("varchar(13)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Lat).HasColumnType("decimal(11,8)");
+
+                entity.Property(e => e.Long).HasColumnType("decimal(11,8)");
+
+                entity.Property(e => e.Priority)
+                    .HasColumnType("int(6)")
+                    .HasDefaultValueSql("'0'");
+
+                entity.Property(e => e.RequestCancelled).HasColumnType("datetime");
+
+                entity.Property(e => e.RequestCompleted).HasColumnType("datetime");
+
+                entity.Property(e => e.RequestDueDate).HasColumnType("datetime");
+
+                entity.Property(e => e.RequestedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.RequirementDesc)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.RequirerName)
+                    .IsRequired()
+                    .HasColumnType("varchar(100)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.StatusOfRequest)
+                    .HasColumnType("int(6)")
+                    .HasDefaultValueSql("'0'");
+
+                entity.Property(e => e.VolunteerCode)
+                    .IsRequired()
+                    .HasColumnType("varchar(10)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
             });

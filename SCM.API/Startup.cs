@@ -29,6 +29,7 @@ namespace SCMAPI
         {
             services.AddDbContext<MySqlContext>();
             services.AddSingleton<ICovidProvider, CovidProvider>();
+            services.AddSingleton<IStockProvider, StockProvider>();
             services.AddEntityFrameworkMySql();
             services.AddControllers();
         }

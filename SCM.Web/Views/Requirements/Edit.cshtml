@@ -1,0 +1,90 @@
+﻿@model SCM.Business.DbModel.Requirements
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Requirements</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RequirerName" class="control-label">Name</label>
+                <input asp-for="RequirerName" class="form-control" />
+                <span asp-validation-for="RequirerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequirementDesc" class="control-label">Description of requirement</label>
+                <input asp-for="RequirementDesc" class="form-control" />
+                <span asp-validation-for="RequirementDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VolunteerCode" class="control-label">Volunteer name</label>
+                <input asp-for="VolunteerCode" class="form-control" />
+                <span asp-validation-for="VolunteerCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNo" class="control-label">Contact no</label>
+                <input type="tel" asp-for="ContactNo" class="form-control" pattern="[0-9]{10}" required />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestDueDate" class="control-label">Due date</label>
+                <input asp-for="RequestDueDate" class="form-control" />
+                <span asp-validation-for="RequestDueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <select asp-for="Priority" class="form-control" asp-items="@(new SelectList(@ViewBag.PriorityList,"Id","Desc",Model.Priority))"></select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusOfRequest" class="control-label"></label>
+                <select asp-for="StatusOfRequest" class="form-control" asp-items="@(new SelectList(@ViewBag.StatusList,"Id","Desc",Model.StatusOfRequest))"></select>
+                <span asp-validation-for="StatusOfRequest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CancellationDesc" class="control-label">Cancellation desc</label>
+                <input asp-for="CancellationDesc" class="form-control" />
+                <span asp-validation-for="CancellationDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lat" class="control-label"></label>
+                <input asp-for="Lat" class="form-control" />
+                <span asp-validation-for="Lat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Long" class="control-label"></label>
+                <input asp-for="Long" class="form-control" />
+                <span asp-validation-for="Long" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

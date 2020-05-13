@@ -1,0 +1,49 @@
+﻿@model SCM.Model.SeekerStatus
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2><i class="fa fa-map-marker red"></i><strong>Orders</strong></h2>
+                    <div class="panel-actions">
+                        <a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                        <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                        <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="panel-body-map">
+                    <div id="map" style="height:380px;"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!-- List #1 -->
+            <li>
+                <!-- Graph -->
+                <div><span id="todayspark1" class="spark"></span></div>
+                <!-- Text -->
+                <div class="datas-text"> @Html.DisplayFor(model => model.TotalRequests) % of requests </div>
+            </li>
+            <li>
+                <div><span id="todayspark2" class="spark"></span></div>
+                <div class="datas-text"> @Html.DisplayFor(model => model.TotalDelivered) % of requests delivered</div>
+            </li>
+            <li>
+                <div><span id="todayspark3" class="spark"></span></div>
+                <div class="datas-text">@Html.DisplayFor(model => model.TotalDue) % of requests due</div>
+            </li>
+            <li>
+                <div><span id="todayspark4" class="spark"></span></div>
+                <div class="datas-text">@Html.DisplayFor(model => model.TotalCancelled) % of requests cancelled</div>
+            </li>
+
+        </div>
+
+    </div>
+</div>
+<script src="~/js/Scmseekermap.js"></script>
