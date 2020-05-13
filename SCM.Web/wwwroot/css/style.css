@@ -168,7 +168,7 @@ table tr th { color: #688a7e;}
 
 .login-img3-body{
 
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
+  background: url('../img/bg-2.jpg') no-repeat center center fixed;
 
   -webkit-background-size: cover;
 
@@ -9906,7 +9906,7 @@ span.customSelect.changed {
 
 
 /*/*Modal styling*/
-/*
+
 .modal.show .modal-dialog {
     transform: none;
 }
@@ -9920,7 +9920,7 @@ span.customSelect.changed {
     -moz-box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3), 0px 15px 12px rgba(0, 0, 0, 0.22);
     box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3), 0px 15px 12px rgba(0, 0, 0, 0.22);
 }
-
+/*
 .modal-shadow-container {
     max-width: 850px;
     margin: 8.25rem 7rem;
@@ -9952,7 +9952,7 @@ span.customSelect.changed {
 .advance-filter-modal {
     padding: 10px 5px;
 }
-
+*/
 .modal-content {
     border: none;
     border-radius: 2px;
@@ -9962,7 +9962,7 @@ span.customSelect.changed {
     border-bottom: none;
     padding-bottom: 0px;
 }
-
+/*
 .container-title {
     font-size: 1.05rem;
 }
@@ -10085,4 +10085,9 @@ body.loading .modal-anim {
     border-color: blue;
     border-width: 2px;
     border-style: dashed;
+}
+
+.mapContent {
+    height: 100%;
+    width: 100%;
 }

@@ -70,6 +70,7 @@
             </div>
 
             <div class="form-group">
+                <a class="btn btn-primary" asp-action="Index">Back</a> 
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -85,15 +86,12 @@
                 </div>
             </div>
             <div class="panel-body-map">
-                <div id="map" style="height:380px;"></div>
+                <div id="map" class="mapContent"></div>
             </div>
         </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");

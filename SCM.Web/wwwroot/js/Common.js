@@ -2,6 +2,7 @@
     SHOW: "show",
     HIDE: "hide",
 };
+
 // load the csv test and training datasets, generate the require objects to display them on map.
 var map = {};
 CommonJs = {
@@ -43,7 +44,14 @@ CommonJs = {
     }
 
 }
-
+$(document).ready(function () {
+    $('#sidebar li').click(function (e) {
+        e.preventDefault();
+        $('#sidebar li').removeClass('active');
+        $(this).addClass('active');
+        e.stopPropagation();
+    });
+});
 //var mymap = L.map('map').setView([11.966065, 75.395162], 13);
 //// add the OpenStreetMap tiles
 //L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

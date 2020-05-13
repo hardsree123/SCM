@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SCM.Business.DbModel;
@@ -18,12 +19,26 @@ namespace SCM.Web.Controllers
         {
             _seeker = seeker;
         }
-
+        const string SessionName = "_Name";
         public IActionResult Index()
         {
-            var requirements = _seeker.GetOverallStatus();
-            return View(requirements);
+            if (TempData["Username"] != null)
+            {//set the session
+                HttpContext.Session.SetString(SessionName, TempData["Username"].ToString());
+            }
+            ViewBag.Username = HttpContext.Session.GetString(SessionName);
+            
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                var requirements = _seeker.GetOverallStatus();
+                return View(requirements);
+            }
+            else
+            {
+                return View("Error");
+            }
         }
+
 
         public IActionResult Privacy()
         {

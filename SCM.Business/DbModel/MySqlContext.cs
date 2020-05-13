@@ -18,6 +18,7 @@ namespace SCM.Business.DbModel
         public virtual DbSet<Covid> Covid { get; set; }
         public virtual DbSet<Requirements> Requirements { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vendor> Vendor { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -180,6 +181,47 @@ namespace SCM.Business.DbModel
                 entity.Property(e => e.VendorCode)
                     .IsRequired()
                     .HasColumnType("varchar(20)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+            });
+
+            modelBuilder.Entity<Users>(entity =>
+            {
+                entity.ToTable("users");
+
+                entity.Property(e => e.Id).HasColumnType("int(10) unsigned");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasColumnType("varchar(500)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Age).HasColumnType("smallint(2)");
+
+                entity.Property(e => e.ContactNo)
+                    .IsRequired()
+                    .HasColumnType("varchar(13)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Designation).HasColumnType("int(6)");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnType("varchar(100)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasColumnType("varchar(50)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
             });

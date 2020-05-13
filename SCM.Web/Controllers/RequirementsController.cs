@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,15 @@ namespace SCM.Web.Controllers
         // GET: Requirements
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Requirements.ToListAsync());
+            ViewBag.Username = HttpContext.Session.GetString("_Name");
+            if (!string.IsNullOrEmpty(ViewBag.Username))
+            {
+                return View(await _context.Requirements.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Users");
+            }
         }
 
         // GET: Requirements/Details/5
@@ -144,7 +153,7 @@ namespace SCM.Web.Controllers
                 return NotFound();
             }
 
-            return View(requirements);
+            return PartialView(requirements);
         }
 
         // POST: Requirements/Delete/5
